@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Properties>
+        <Property name="appName">maxi</Property>
+        <Property name="logpath">/Users/night/dev/other/log/${appName}</Property>
+        <!--统一的日志格式-->
+        <!-- [%d{yyyy-MM-dd HH:mm:ss.SSS} ${hostName} ${appName}] [%-5p] [%t] (%c{1}:%L) [TxId:%X{PtxId} SpanId:%X{PspanId}] %m%n -->
+        <Property name="default_log_pattern">
+            [%d{yyyy-MM-dd HH:mm:ss.SSS} ${hostName} ${appName}] [%-5p] [%t] (%c{1}:%L) [TxId:%X] %m%n
+        </Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <Filters>
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${default_log_pattern}"/>
+        </Console>
+
+
+        <RollingFile name="infoFile" fileName="${logpath}/${appName}.log" filePattern="${logpath}/${appName}.log.%d{yyyy-MM-dd}">
+            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${default_log_pattern}" charset="UTF-8"/>
+            <!-- 只安时间滚动,不需要按大小分片 -->
+            <TimeBasedTriggeringPolicy/>
+        </RollingFile>
+
+        <RollingFile name="errorFile" fileName="${logpath}/common-error.log" filePattern="${logpath}/common-error.log.%d{yyyy-MM-dd}">
+            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${default_log_pattern}" charset="UTF-8"/>
+            <!-- 只安时间滚动,不需要按大小分片 -->
+            <TimeBasedTriggeringPolicy/>
+        </RollingFile>
+
+
+    </Appenders>
+
+    <Loggers>
+        <AsyncRoot level="INFO">
+            <appender-ref ref="STDOUT" level="INFO"/>
+            <appender-ref ref="infoFile" level="INFO"/>
+            <appender-ref ref="errorFile" level="INFO"/>
+        </AsyncRoot>
+    </Loggers>
+</Configuration>

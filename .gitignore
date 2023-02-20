@@ -1,8 +1,29 @@
+/target/
+.mvn/
 
-/target
-/examples/target
-/examples/*/target
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-Cargo.lock
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
-.DS_Store
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/out/
+
+/gold_broker.out
+
