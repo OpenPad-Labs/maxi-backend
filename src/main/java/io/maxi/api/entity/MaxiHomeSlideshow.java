@@ -13,8 +13,8 @@ public class MaxiHomeSlideshow extends BaseEntity {
     private String title;
     private String imageUrl;
     private String httpUrl;
-//    private String desc;
-//    private String sort;
+    private String description;
+    private String sortNum;
 
 
 

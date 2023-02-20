@@ -10,6 +10,8 @@
 .springBeans
 .sts4-cache
 
+app.pid
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
