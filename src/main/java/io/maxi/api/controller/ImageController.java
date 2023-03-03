@@ -43,7 +43,7 @@ import java.util.List;
  * @author night
  * @date
  */
-
+@RestController
 @CrossOrigin
 public class ImageController {
     private static final Logger log = LoggerFactory.getLogger(ImageController.class);

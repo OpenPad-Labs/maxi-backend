@@ -62,7 +62,8 @@ public class AiController {
             Integer seed = jsonObject.getInteger("seed");
             String saveFileName = SecurityUtil.sha256(address+System.currentTimeMillis()+seed)+seed+".png";
             ImageConvertBase64.toImage(base64,new File(saveFileName));
-            imageList.add(saveFileName);
+            String host = "https://api.maixtest.shop/image/";
+            imageList.add(host+saveFileName);
         }
         return Result.success(imageList);
     }
