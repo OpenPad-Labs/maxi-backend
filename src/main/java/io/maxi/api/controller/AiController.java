@@ -76,6 +76,12 @@ public class AiController {
         return Result.success("10");
     }
 
+    @GetMapping("/api/v1/public/ai/points/consume")
+    public Result<String> pointsConsume(@RequestParam("amount") String amount) {
+
+        return Result.success("10");
+    }
+
 
     public String imageToImage( String text, String address,  MultipartFile img) {
         try {
