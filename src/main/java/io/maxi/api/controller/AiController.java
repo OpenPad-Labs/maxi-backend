@@ -2,6 +2,9 @@ package io.maxi.api.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import io.maxi.api.dao.MaxiAiUserPointMapper;
+import io.maxi.api.entity.MaxiAiUserPoint;
 import io.maxi.api.response.Result;
 import io.maxi.api.utils.ImageConvertBase64;
 import io.maxi.api.utils.SecurityUtil;
@@ -42,6 +45,9 @@ public class AiController {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private MaxiAiUserPointMapper maxiAiUserPointMapper;
+
 
     @PostMapping("/api/v1/public/ai/image")
     public Result<List<String>> image(@RequestParam("text") String text, @RequestParam("address") String address, @RequestPart(name="img",required = false) MultipartFile img) {
@@ -73,13 +79,41 @@ public class AiController {
     @GetMapping("/api/v1/public/ai/points")
     public Result<String> points(@RequestParam("address") String address) {
 
-        return Result.success("10");
+        MaxiAiUserPoint point = maxiAiUserPointMapper.selectOne(Wrappers.<MaxiAiUserPoint>lambdaQuery()
+                .eq(MaxiAiUserPoint::getAddress, address)
+                .eq(MaxiAiUserPoint::getAvailable, 1)
+        );
+        if(point == null){
+            return Result.success("-1");
+        }
+
+        Integer value = point.getAccumulatedPoints() - point.getConsumedPoint();
+        if(value <= -1){
+            return Result.success("-1");
+        }
+
+        return Result.success(String.valueOf(value));
     }
 
     @GetMapping("/api/v1/public/ai/points/consume")
-    public Result<String> pointsConsume(@RequestParam("amount") String amount) {
+    public Result<String> pointsConsume(@RequestParam("address") String address,@RequestParam("amount") String amount) {
+        MaxiAiUserPoint point = maxiAiUserPointMapper.selectOne(Wrappers.<MaxiAiUserPoint>lambdaQuery()
+                .eq(MaxiAiUserPoint::getAddress, address)
+                .eq(MaxiAiUserPoint::getAvailable, 1)
+        );
+        if(point == null){
+            return Result.success("-1");
+        }
 
-        return Result.success("10");
+        Integer value = point.getAccumulatedPoints() - point.getConsumedPoint() - Integer.valueOf(amount);
+        if(value <= -1){
+            return Result.success("-1");
+        }
+
+        point.setConsumedPoint(point.getConsumedPoint()+Integer.valueOf(amount));
+        maxiAiUserPointMapper.updateById(point);
+
+        return Result.success(String.valueOf(value));
     }
 
 
