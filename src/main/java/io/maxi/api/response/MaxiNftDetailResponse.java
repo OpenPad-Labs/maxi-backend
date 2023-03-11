@@ -17,7 +17,9 @@ public class MaxiNftDetailResponse extends MaxiNftCollection {
     private String crew3;
     private String galxe;
     private String medium;
-    private String whitepaper;
+
+    private String cover;
+    private String roadmap;
 
 
     private String totalSupply;
