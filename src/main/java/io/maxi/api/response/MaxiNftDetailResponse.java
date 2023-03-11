@@ -10,4 +10,19 @@ import java.util.List;
 public class MaxiNftDetailResponse extends MaxiNftCollection {
 
 
+    private String twitter;
+    private String discord;
+    private String telegram;
+    private String website;
+    private String crew3;
+    private String galxe;
+    private String medium;
+    private String whitepaper;
+
+
+    private String totalSupply;
+    private String minted;
+    private String userMaxMintNum;
+    private String price;
+
 }
