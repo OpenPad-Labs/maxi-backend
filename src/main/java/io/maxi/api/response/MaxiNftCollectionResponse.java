@@ -10,6 +10,7 @@ import java.util.List;
 public class MaxiNftCollectionResponse extends BaseRequest {
 
     private String nftCollectionId;
+    private String nftCollectionAddress;
 
     private String title;
     private String imageUrl;

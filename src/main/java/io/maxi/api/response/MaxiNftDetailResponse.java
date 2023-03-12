@@ -25,6 +25,24 @@ public class MaxiNftDetailResponse extends MaxiNftCollection {
     private String totalSupply;
     private String minted;
     private String userMaxMintNum;
-    private String price;
+
+    private String team;
+    private String faq;
+    private String overview;
+
+    private String privateSaleStartTime;
+    private String privateSaleEndTime;
+    private String privateSalePrice;
+    private String privateSaleText;
+
+    private String airDropStartTime;
+    private String airDropEndTime;
+    private String airDropPrice;
+    private String airDropText;
+
+    private String publicSaleStartTime;
+    private String publicEndTime;
+    private String publicSalePrice;
+    private String publicSaleText;
 
 }
