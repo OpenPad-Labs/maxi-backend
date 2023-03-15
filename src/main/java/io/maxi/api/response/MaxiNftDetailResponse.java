@@ -9,6 +9,7 @@ import java.util.List;
 @Data
 public class MaxiNftDetailResponse extends MaxiNftCollection {
 
+    public static final Long day = 24 * 60 * 60 * 1000L;
 
     private String twitter;
     private String discord;
@@ -19,30 +20,30 @@ public class MaxiNftDetailResponse extends MaxiNftCollection {
     private String medium;
 
     private String cover;
-    private String roadmap;
+    private String roadmap="roadmap text";
 
 
-    private String totalSupply;
-    private String minted;
-    private String userMaxMintNum;
+    private String totalSupply="3000";
+    private String minted="1200";
+    private String userMaxMintNum="10";
 
-    private String team;
-    private String faq;
-    private String overview;
+    private String team="team text";
+    private String faq="faq text";
+    private String overview="overview text";
 
-    private String privateSaleStartTime;
-    private String privateSaleEndTime;
-    private String privateSalePrice;
-    private String privateSaleText;
+    private String privateSaleStartTime = String.valueOf(System.currentTimeMillis() - day);
+    private String privateSaleEndTime = String.valueOf(System.currentTimeMillis() + day);
+    private String privateSalePrice= "0.1";
+    private String privateSaleText = "private Sale Text";
 
-    private String airDropStartTime;
-    private String airDropEndTime;
-    private String airDropPrice;
-    private String airDropText;
+    private String airDropStartTime = String.valueOf(System.currentTimeMillis() + 2*day);
+    private String airDropEndTime = String.valueOf(System.currentTimeMillis() + 3*day);
+    private String airDropPrice= "0.0";
+    private String airDropText  = "airDrop Text";
 
-    private String publicSaleStartTime;
-    private String publicEndTime;
-    private String publicSalePrice;
-    private String publicSaleText;
+    private String publicSaleStartTime = String.valueOf(System.currentTimeMillis() + 4*day);
+    private String publicEndTime = String.valueOf(System.currentTimeMillis() + 5*day);
+    private String publicSalePrice= "0.88";
+    private String publicSaleText  = "public Sale Text";
 
 }
