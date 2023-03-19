@@ -94,21 +94,23 @@ public class LaunchController {
 
         List<MaxiNftCollection> list = pageList.getRecords();
 
-        List<MaxiNftCollectionResponse> maxiNftCollectionList = new ArrayList<>();
+        List<MaxiNftDetailResponse> maxiNftCollectionList = new ArrayList<>();
 
-        for (MaxiNftCollection collection : list) {
-            MaxiNftCollectionResponse collectionResponse = new MaxiNftCollectionResponse();
-            collectionResponse.setNftCollectionId(collection.getNftCollectionId());
-            collectionResponse.setStatus(collection.getStatus());
-            collectionResponse.setDescription(collection.getNftCollectionDesc());
-            collectionResponse.setImageUrl(collection.getNftCollectionCover());
+        BeanUtils.copyProperties(list,maxiNftCollectionList);
 
-            collectionResponse.setSortNum(collection.getSortNum());
-            //todo 获取最新一个售卖周期的时间
-            collectionResponse.setStartTime(String.valueOf(System.currentTimeMillis()));
-
-            maxiNftCollectionList.add(collectionResponse);
-        }
+//        for (MaxiNftCollection collection : list) {
+//            MaxiNftCollectionResponse collectionResponse = new MaxiNftCollectionResponse();
+//            collectionResponse.setNftCollectionId(collection.getNftCollectionId());
+//            collectionResponse.setStatus(collection.getStatus());
+//            collectionResponse.setDescription(collection.getNftCollectionDesc());
+//            collectionResponse.setImageUrl(collection.getNftCollectionCover());
+//
+//            collectionResponse.setSortNum(collection.getSortNum());
+//            //todo 获取最新一个售卖周期的时间
+//            collectionResponse.setStartTime(String.valueOf(System.currentTimeMillis()));
+//
+//            maxiNftCollectionList.add(collectionResponse);
+//        }
 
         response.setMaxiNftCollectionList(maxiNftCollectionList);
         return Result.success(response);

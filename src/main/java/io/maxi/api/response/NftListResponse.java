@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 public class NftListResponse extends BaseRequest {
 
-    private List<MaxiNftCollectionResponse> maxiNftCollectionList;
+    private List<MaxiNftDetailResponse> maxiNftCollectionList;
     private Long pageIndex;
     private Long pageSize;
     private Long total;

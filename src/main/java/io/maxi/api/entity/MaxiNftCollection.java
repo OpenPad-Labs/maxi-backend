@@ -37,6 +37,8 @@ public class MaxiNftCollection extends BaseEntity {
 
     private String status;
 
+    private String extInfo;
+
 
 
 }

@@ -46,4 +46,12 @@ public class MaxiNftDetailResponse extends MaxiNftCollection {
     private String publicSalePrice= "0.88";
     private String publicSaleText  = "public Sale Text";
 
+
+
+
+    private String startTime = String.valueOf(System.currentTimeMillis() - day);
+    private String endTime = String.valueOf(System.currentTimeMillis() + day);
+
+
+
 }
