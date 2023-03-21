@@ -99,6 +99,9 @@ public class LaunchController {
         for (MaxiNftCollection collection : list) {
             MaxiNftDetailResponse detailResponse = new MaxiNftDetailResponse();
             BeanUtils.copyProperties(collection,detailResponse);
+
+            detailResponse.map();
+
             maxiNftCollectionList.add(detailResponse);
         }
 
@@ -134,6 +137,7 @@ public class LaunchController {
 
         BeanUtils.copyProperties(collection,response);
 
+        response.map();
 
         return Result.success(response);
     }

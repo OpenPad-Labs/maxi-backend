@@ -9,6 +9,6 @@ fi
 
 sudo nohup java -jar -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=128m -Xms2048m -Xmx2048m -Xmn2048m -Xss256k -XX:SurvivorRatio=8 -XX:+UseG1GC -Dspring.profiles.active=prod /home/ecs-user/app/maxi.jar  >> /home/ecs-user/logs/appdef.log 2>&1   &
 
-sleep 10
+sleep 20
 curl  127.0.0.1:8088/health
 echo "service done"
