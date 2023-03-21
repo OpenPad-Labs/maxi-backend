@@ -35,16 +35,22 @@ public class MaxiNftDetailResponse extends MaxiNftCollection {
     private String privateSaleEndTime = String.valueOf(System.currentTimeMillis() + day);
     private String privateSalePrice= "0.1";
     private String privateSaleText = "private Sale Text";
+    private String privateSaleUserMaxMintNum="10";
+    private String privateSaleTotalSupply="1000";
 
     private String airDropStartTime = String.valueOf(System.currentTimeMillis() + 2*day);
     private String airDropEndTime = String.valueOf(System.currentTimeMillis() + 3*day);
     private String airDropPrice= "0.0";
     private String airDropText  = "airDrop Text";
+    private String airDropUserMaxMintNum="10";
+    private String airDropTotalSupply="1000";
 
     private String publicSaleStartTime = String.valueOf(System.currentTimeMillis() + 4*day);
     private String publicEndTime = String.valueOf(System.currentTimeMillis() + 5*day);
     private String publicSalePrice= "0.88";
     private String publicSaleText  = "public Sale Text";
+    private String publicSaleUserMaxMintNum="10";
+    private String publicSaleTotalSupply="1000";
 
 
 
