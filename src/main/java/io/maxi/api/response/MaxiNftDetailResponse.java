@@ -19,6 +19,8 @@ public class MaxiNftDetailResponse extends MaxiNftCollection {
     private String galxe;
     private String medium;
 
+    private String tag="Game,PFP,Casso";
+
     private String cover;
     private String roadmap="roadmap text";
 
