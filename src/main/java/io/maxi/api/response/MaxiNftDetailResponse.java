@@ -87,6 +87,11 @@ public class MaxiNftDetailResponse extends MaxiNftCollection {
             airDropStartTime = (String) map.getOrDefault("airDropStartTime",airDropStartTime);
             airDropEndTime = (String) map.getOrDefault("airDropEndTime",airDropEndTime);
 
+            airDropPrice = (String) map.getOrDefault("airDropPrice",airDropPrice);
+            airDropText = (String) map.getOrDefault("airDropText",airDropText);
+            airDropUserMaxMintNum = (String) map.getOrDefault("airDropUserMaxMintNum",airDropUserMaxMintNum);
+            airDropTotalSupply = (String) map.getOrDefault("airDropTotalSupply",airDropTotalSupply);
+
 
             publicSaleStartTime = (String) map.getOrDefault("publicSaleStartTime",publicSaleStartTime);
             publicEndTime = (String) map.getOrDefault("publicEndTime",publicEndTime);
