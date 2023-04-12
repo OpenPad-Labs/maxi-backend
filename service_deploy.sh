@@ -2,9 +2,9 @@
 
 cd /home/ubuntu/app
 
-if [ -f "/home/ubuntu/github/maxi-backend/app.pid" ];
+if [ -f "/home/ubuntu/app/app.pid" ];
 then
-  cat /home/ubuntu/github/maxi-backend/app.pid |sudo xargs  kill -9
+  cat /home/ubuntu/app/app.pid |sudo xargs  kill -9
   # 暂停15秒再重启,让内存回收下
   sleep 5
 fi
